@@ -1,6 +1,7 @@
 package com.Spring.ChallengeApp;
 
 public class Challenge {
+    //public Object setId;
     private Long id;
     private String month;
     private String description;
@@ -22,4 +23,16 @@ public class Challenge {
     public String getDescription() {
         return description;
     }
-}
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }}
+
+
