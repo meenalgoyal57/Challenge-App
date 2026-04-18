@@ -15,6 +15,8 @@ public class ChallengeService {
     }
 
 
+
+
     public List<Challenge> getAllChallenges() {
         return challenges;
     }
@@ -29,12 +31,27 @@ public class ChallengeService {
         }
     }
 
-    public Challenge getChallenge(Long id) {
+    public Challenge getChallenge(String month) {
         for(Challenge challenge:challenges){
-            if(challenge.getId().equals(id)){
-                return challenge;
-            }
+        if(challenge.getMonth().equalsIgnoreCase(month)){
+            return challenge;
+        }
         }
         return null;
+    }
+
+    public boolean updateChallenge(Long id, Challenge updatedChallenge) {
+        for(Challenge challenge:challenges){
+            if(challenge.getId().equals(id)){
+                challenge.setMonth(updatedChallenge.getMonth());
+                challenge.setDescription(updatedChallenge.getDescription());
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean deleteChallenge(Long id) {
+            return challenges.removeIf(challenge -> challenge.getId().equals(id));
     }
 }
